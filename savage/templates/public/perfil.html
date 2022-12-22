@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block tittle %} Perfil {% endblock %}
+
+{% block customCSS %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}"> 
+{% endblock %}
+
+{% block header %}
+           <header class="hider" id="navbar">
+                {% if g.user %}
+                <a href="/home" class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                <ul>
+                    <li><a href="/home" class="jtn "><ion-icon src="{{ url_for('static', filename='svg/home-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="/perfil" class="jtn active"><ion-icon src="{{ url_for('static', filename='svg/person-circle-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="#" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/settings-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="/logout" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/log-out-outline.svg') }}"></ion-icon></a></li>
+                </ul>
+                {% else %}
+                <a href="/i" class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                <ul>
+                    <li><a href="/i" class="jtn active"><ion-icon src="{{ url_for('static', filename='svg/home-outline.svg') }}"></ion-icon></a></li>
+                    <li><a  href="/login" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/log-in-outline.svg') }}"></ion-icon> </a></li>
+                </ul>
+                {% endif %}           
+            </header> 
+{% endblock %}
+{% block content %}
+    <div class="perfil-container">
+        <img class="img-perfil" src="{{ url_for('static', filename='img/logo-perfil.jpg') }}">
+        <div class="contenedor-cabezera">
+            <div class="cabezera1">
+                <h1>{{ g.user.username }}</h1>
+                <a href="/cP">Subir Foto</a>
+            </div>
+            <div class="cabezera2">
+                <p><a href="#">0</a> publicaciones</p>
+                <p><a href="#">1</a> seguidores</p>
+                <p><a href="#">0</a> seguidos</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

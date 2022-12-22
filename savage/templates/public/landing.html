@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block tittle %} Red Social {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+{% endblock %}
+
+{% block content %}
+            <div class="contentBox">
+                <img class="imglndg" src="{{ url_for('static', filename='img/eternals.png') }}">
+                <p>¿Te gustaria presumir a tu <span>savage</span> preferido?</p>
+                <a href="/register" class="btn" >Crear Cuenta</a>
+            </div>
+{% endblock %}

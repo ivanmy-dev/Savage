@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block tittle %} Iniciar Sesión  {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block header %}
+            <header id="navbar">
+                {% if g.user %}
+                <a href="/home" class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                <ul>
+                    <li><a href="/home" class="jtn active"><ion-icon src="{{ url_for('static', filename='svg/home-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="/perfil" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/person-circle-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="#" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/settings-outline.svg') }}"></ion-icon></a></li>
+                    <li><a href="/logout" class="jtn"><ion-icon src="{{ url_for('static', filename='svg/log-out-outline.svg') }}"></ion-icon></a></li>
+                </ul>
+                {% else %}
+                <a href="/i" class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                <ul>
+                    <li><a href="/i" class="jtn "><ion-icon src="{{ url_for('static', filename='svg/home-outline.svg') }}"></ion-icon></a></li>
+                    <li><a  href="/login" class="jtn active"><ion-icon src="{{ url_for('static', filename='svg/log-in-outline.svg') }}"></ion-icon> </a></li>
+                </ul>
+                {% endif %}           
+            </header>
+{% endblock %}
+
+{% block content %}
+<div class="contentBox">
+    <main class="form-signin w-100 m-auto border border-white">
+        <form method="POST">
+                  <img class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" style="max-width: 200px;">
+                  <!-- message -->
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <br/>
+                  {% for message in messages %}
+                  <div class="alert alert-primary alert-dismissible" role="alert"> 
+                    <strong> {{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label=""></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+                  <h1 class="h3 mb-3 fw-normal" style="color: white;">Porfavor inicia sesión</h1>
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electronico" required>
+                    <label for="email">Correo Electronico</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Contraseña" required>
+                    <label for="floatingPassword">Contraseña</label>
+                  </div>
+              
+                  <div class="checkbox mb-3">
+                    <label style="color: white;">
+                      <input type="checkbox" value="remember-me"> Recordarme
+                    </label>
+                  </div>
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
+                  <div class="mt-3 fw-normal regis">
+                      <p>¿No tienes cuenta? <a href="/register">Registrarse</a></p>
+                  </div>
+        </form>
+    </main>
+</div>    
+
+{% endblock %}

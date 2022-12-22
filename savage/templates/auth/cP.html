@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block tittle %} Inicio {% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cP.css') }}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="contentBox">
+  <main class="form-signin w-100 m-auto">
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+      <img class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" style="max-width: 200px;">
+                  <!-- message -->
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <br/>
+                  {% for message in messages %}
+                  <div class="alert alert-primary alert-dismissible" role="alert"> 
+                    <strong> {{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label=""></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+      <div class="form-floating">
+        <p>Sube la imagen de tu savage.</p>
+        <input type="file" class="form-control" name="pic" autocomplete="off" required> 
+      </div>
+    
+      <button class="w-30 btn btn-lg btn-primary" type="submit">Subir</button>
+      <a href="/perfil" class="btn btn-lg btn-primary ">Atras</a>
+    </form>
+  </main>
+</div>
+
+            <!-- -->
+{% endblock %}

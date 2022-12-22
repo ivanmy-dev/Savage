@@ -1,0 +1,98 @@
+
+/*  */
+.banner{
+    transition: 1.2s;
+}
+
+.banner .box{
+    position: relative;
+    background-color: rgb(158, 69, 34);
+    height: 100vh;
+}
+
+.banner .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.banner .content .contentBox{
+    text-align: center;
+}
+
+.banner .content .contentBox .imglndg{
+    width: 100%;
+}
+
+.banner .content .contentBox p{
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 300;
+}
+
+.banner .content .contentBox p span{
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.banner .content .contentBox .btn{
+    display: inline-block;
+    font-size:  1.1em;
+    color: #fff;
+    background: #9ab1b1;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+    border: none;
+}
+
+.banner .content .contentBox .btn:hover{
+    background: #afcaca;
+    letter-spacing: 2px;
+}
+
+.sci{
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.sci h4{
+    font-size: 15px;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.sci li{
+    list-style: none;
+}
+
+.sci li img{
+    max-width: 30px;
+}
+
+/* Medias */
+
+@media (max-width: 991px){
+    .banner .content{
+        padding: 40px;
+    }
+    .sci{
+        right: 40px;
+    }
+}
+
+@media (max-width: 600px){
+
+}
